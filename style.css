@@ -1,0 +1,363 @@
+      :root {
+            --primary-color: #0a2351; /* Deep Midnight Blue */
+            --secondary-color: #1b4332; /* Deep Forest Green */
+            --accent-color: #f8f9fa;
+            --navbar-bg: #f1f5f9; /* Neutral Slate to make logos pop */
+            --text-main: #2d3436;
+            --font-family: 'Inter', sans-serif;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Branding Overrides */
+        .text-primary { color: var(--primary-color) !important; }
+        .bg-primary { background-color: var(--primary-color) !important; }
+        .bg-secondary-brand { background-color: var(--secondary-color) !important; color: white; }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: #07193a;
+            border-color: #07193a;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Navbar: Neutral styling for logo compatibility */
+        .navbar {
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--navbar-bg);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn {
+            border-radius: 4px;
+            font-weight: 600;
+            padding: 10px 24px;
+            transition: all 0.2s ease;
+        }
+
+        /* Hero Section with Background Image */
+        .hero-section {
+            position: relative;
+            padding: 160px 0;
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Dark overlay for text legibility */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 35, 81, 0.75); /* Midnight Blue overlay with transparency */
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        /* Card Designs */
+        .course-card {
+            border: 1px solid #e9ecef;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            background: #fff;
+        }
+
+        .course-card.engineering { border-top-color: var(--primary-color); }
+        .course-card.digital { border-top-color: var(--secondary-color); }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(10, 35, 81, 0.1);
+        }
+
+        .course-badge {
+            font-size: 0.70rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        /* About Section Styles */
+        .about-image-stack {
+            position: relative;
+            height: 400px;
+        }
+        .about-image-1 {
+            width: 80%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+        }
+        .about-image-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 992px) {
+            .about-image-stack {
+                height: 300px;
+            }
+            .about-image-1 {
+                width: 90%;
+                height: 250px;
+            }
+            .about-image-2 {
+                width: 55%;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-image-stack {
+                height: 250px;
+                margin-bottom: 20px;
+            }
+            .about-image-1 {
+                width: 100%;
+                height: 200px;
+            }
+            .about-image-2 {
+                width: 65%;
+                height: 140px;
+                border-width: 3px;
+            }
+        }
+
+        .team-card {
+            text-align: center;
+            border: none;
+            background: transparent;
+        }
+        .team-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-color);
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        .stat-item h2 { color: #5dade2; }
+
+        /* Form Styling */
+        .form-control {
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--secondary-color);
+        }
+
+        footer {
+            background: #051025;
+            color: #bdc3c7;
+            padding: 80px 0 20px;
+        }
+
+        @media (max-width: 576px) {
+            footer {
+                padding: 50px 0 20px;
+            }
+            footer h6 {
+                font-size: 0.95rem;
+            }
+        }
+
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 576px) {
+            .col-md-5 {
+                padding: 2rem 1.5rem !important;
+            }
+            .col-md-7 {
+                padding: 2rem 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .col-md-5.bg-secondary-brand,
+            .col-md-7 {
+                padding: 2rem !important;
+            }
+        }
+
+        /* Ensure form inputs are responsive */
+        .form-control, .form-select {
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+
+        @media (max-width: 576px) {
+            .form-control, .form-select {
+                padding: 0.6rem 0.75rem;
+            }
+        }
+
+        /* Sticky CTA for Mobile */
+        @media (max-width: 768px) {
+            .mobile-cta {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                padding: 10px;
+                background: #fff;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            }
+            .hero-section {
+                padding: 100px 0;
+                background-attachment: scroll; /* Better performance on mobile */
+            }
+            .about-image-stack {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 10px 0;
+            }
+            .navbar-brand {
+                font-size: 0.9rem;
+            }
+            .navbar-brand img {
+                height: 45px !important;
+                width: 45px !important;
+            }
+            .hero-section {
+                padding: 80px 0;
+            }
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+            .hero-section .lead {
+                font-size: 0.95rem;
+            }
+            .display-3 {
+                font-size: 2rem;
+            }
+            .btn-lg {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            .section-title::after {
+                width: 50px;
+            }
+            .stat-item h2 {
+                font-size: 1.8rem;
+            }
+            .team-img {
+                width: 100px;
+                height: 100px;
+            }
+            .course-card {
+                margin-bottom: 20px;
+            }
+            .btn-group {
+                flex-wrap: wrap;
+                gap: 0.5rem !important;
+            }
+            .btn-group .btn {
+                flex: 0 1 calc(50% - 0.25rem);
+            }
+        }
