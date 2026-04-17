@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | TechNova Institute</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --primary-color: #0a2351;
+            --secondary-color: #1b4332;
+            --navbar-bg: #f1f5f9;
+            --text-main: #2d3436;
+            --font-family: 'Inter', sans-serif;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Branding Overrides */
+        .text-primary { color: var(--primary-color) !important; }
+        .bg-primary { background-color: var(--primary-color) !important; }
+        .bg-secondary-brand { background-color: var(--secondary-color) !important; color: white; }
+        
+        .navbar {
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--navbar-bg);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(rgba(10, 35, 81, 0.85), rgba(10, 35, 81, 0.85)), 
+                        url('https://images.unsplash.com/photo-1523240695612-9a054b0db644?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        /* Admission Steps */
+        .step-container {
+            position: relative;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border-left: 5px solid var(--primary-color);
+            height: 100%;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(10, 35, 81, 0.1);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        /* Form Styles */
+        .application-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(10, 35, 81, 0.1);
+        }
+
+        /* Tables */
+        .table-custom {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .table-custom thead {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            background: #051025;
+            color: #bdc3c7;
+            padding: 80px 0 20px;
+        }
+
+        .footer-link { color: #bdc3c7; text-decoration: none; }
+        .footer-link:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="Index.html">
+                <img style="height: 60px;width: 60px; margin: 15px;" src="img/logo.png" alt="">
+                <span class="fw-bold tracking-tighter text-success">    TAJ TECHNICAL COLLEGE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="programs.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="contacts.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="admissions.html" class="btn btn-primary btn-sm px-4">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Join Taj Technical College</h1>
+            <p class="lead opacity-75">Your journey towards technical mastery begins here.</p>
+        </div>
+    </header>
+
+    <!-- Tuition & Fees -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5 reveal">
+                    <h2 class="section-title">Tuition & Financial Aid</h2>
+                    <p>We believe high-quality technical education should be accessible. TechNova offers various scholarship programs based on merit and financial need.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-secondary me-2"></i> Merit-based Scholarships (Up to 50%)</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-secondary me-2"></i> Corporate Sponsorship Partners</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-secondary me-2"></i> Flexible Monthly Payment Plans</li>
+                    </ul>
+                    <div class="alert alert-info border-0 shadow-sm mt-4">
+                        <i class="bi bi-info-circle-fill me-2"></i> Early Bird Discount: Register before June 30th for 10% off.
+                    </div>
+                </div>
+                <div class="col-lg-7 reveal">
+                    <div class="table-responsive table-custom">
+                        <table class="table table-hover bg-white mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="p-3">Program Level</th>
+                                    <th class="p-3">Tuition / Semester</th>
+                                    <th class="p-3">Lab Fees</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-3 fw-bold">Advanced Diploma</td>
+                                    <td class="p-3">$2,450</td>
+                                    <td class="p-3">$450</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold">Full-Time Diploma</td>
+                                    <td class="p-3">$1,800</td>
+                                    <td class="p-3">$300</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold">Professional Cert.</td>
+                                    <td class="p-3">$1,200</td>
+                                    <td class="p-3">$150</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="py-5" id="apply-form">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="application-form reveal">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold">Application for Admission</h2>
+                            <p class="text-muted">Fill out the form below to start your application.</p>
+                        </div>
+                        <form action="#" method="POST" onsubmit="event.preventDefault(); document.getElementById('success-msg').style.display='block';">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">First Name</label>
+                                    <input type="text" class="form-control" placeholder="John" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="john@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="+1 (000) 000-0000" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Program of Interest</label>
+                                    <select class="form-select form-control">
+                                        <option selected>Select a program...</option>
+                                        <option>Robotics Engineering</option>
+                                        <option>Renewable Energy Systems</option>
+                                        <option>Cybersecurity Operations</option>
+                                        <option>CNC Machining</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Highest Educational Qualification</label>
+                                    <input type="text" class="form-control" placeholder="e.g. High School Diploma">
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Submit Application</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="success-msg" class="alert alert-success mt-4 text-center" style="display: none;">
+                            <i class="bi bi-check-circle-fill me-2"></i> Thank you! Your application has been submitted successfully. Our team will contact you within 48 hours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img style="height: 40px;width:40px;" src="img/logo.png" alt="">
+                        <h4 class="text-white fw-bold mb-0">Taj Technical College</h4>
+                    </div>
+                    <p>Taj Technical College provides world-class technical education focused on practical application and industry readiness through high-performance laboratories.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="text-white fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="About.html" class="footer-link">About</a></li>
+                        <li class="mb-2"><a href="Programs.html" class="footer-link">Programs</a></li>
+                        <li class="mb-2"><a href="Contacts.html" class="footer-link">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="text-white fw-bold mb-4">Stay Informed</h6>
+                    <p class="small">Subscribe for curriculum updates and industry event invites.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="Work Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small text-secondary">&copy; 2026 Taj Technical College.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 small text-secondary">Technology is the Future.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-cta d-md-none border-top">
+        <div class="container d-flex gap-2">
+            <a href="tel:+211924080945" class="btn btn-outline-primary flex-grow-1"><i class="bi bi-telephone me-2"></i>Call</a>
+            <a href="#apply" class="btn btn-primary flex-grow-1">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar behavior
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow');
+                    nav.style.background = '#ffffff';
+                } else {
+                    nav.classList.remove('shadow');
+                    nav.style.background = 'var(--navbar-bg)';
+                }
+            });
+
+            // Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>

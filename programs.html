@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Programs | TechNova Institute</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --primary-color: #0a2351;
+            --secondary-color: #1b4332;
+            --navbar-bg: #f1f5f9;
+            --text-main: #2d3436;
+            --font-family: 'Inter', sans-serif;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Branding Overrides */
+        .text-primary { color: var(--primary-color) !important; }
+        .bg-primary { background-color: var(--primary-color) !important; }
+        .bg-secondary-brand { background-color: var(--secondary-color) !important; color: white; }
+        
+        .navbar {
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--navbar-bg);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(rgba(10, 35, 81, 0.9), rgba(10, 35, 81, 0.9)), 
+                        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        /* Program Specific Styles */
+        .filter-sidebar {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            position: sticky;
+            top: 110px;
+        }
+
+        .course-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(10, 35, 81, 0.08);
+        }
+
+        .course-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .btn-filter {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .btn-filter:hover, .btn-filter.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .program-meta {
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #051025;
+            color: #bdc3c7;
+            padding: 80px 0 20px;
+        }
+
+        .footer-link { color: #bdc3c7; text-decoration: none; }
+        .footer-link:hover { color: var(--white); }
+
+        @media (max-width: 991px) {
+            .filter-sidebar { position: static; margin-bottom: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="Index.html">
+                <img style="height: 60px;width: 60px; margin: 15px;" src="img/logo.png" alt="">
+                <span class="fw-bold tracking-tighter text-success">    TAJ TECHNICAL COLLEGE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="programs.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="contacts.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="admissions.html" class="btn btn-primary btn-sm px-4">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Academic Programs</h1>
+            <p class="lead opacity-75">Specialized technical training for the modern industrial landscape.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- Sidebar Filter -->
+                <div class="col-lg-3 reveal">
+                    <div class="filter-sidebar shadow-sm">
+                        <h5 class="fw-bold mb-4">Browse Categories</h5>
+                        <nav>
+                            <a href="#" class="btn-filter active" data-filter="all">All Programs</a>
+                            <a href="#" class="btn-filter" data-filter="engineering">Engineering</a>
+                            <a href="#" class="btn-filter" data-filter="digital">Digital & IT</a>
+                            <a href="#" class="btn-filter" data-filter="energy">Energy & Power</a>
+                            <a href="#" class="btn-filter" data-filter="manufacturing">Advanced Manufacturing</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Programs Grid -->
+                <div class="col-lg-9">
+                    <div class="row g-4" id="programsGrid">
+                        <!-- Program 1 -->
+                        <div class="col-md-6 program-card reveal" data-category="energy">
+                            <div class="course-card">
+                                <img src="https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?auto=format&fit=crop&w=800&q=80" alt="Energy" class="course-img">
+                                <div class="course-content">
+                                    <span class="course-badge bg-primary text-white">Full-Time Diploma</span>
+                                    <h4 class="fw-bold">Renewable Energy Systems</h4>
+                                    <div class="program-meta">
+                                        <span><i class="bi bi-clock me-1"></i> 2 Years</span>
+                                        <span><i class="bi bi-mortarboard me-1"></i> Level 5</span>
+                                    </div>
+                                    <p class="text-muted small">Specializing in photovoltaic installation, wind turbine maintenance, and battery storage solutions.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm mt-3 px-4">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Program 2 -->
+                        <div class="col-md-6 program-card reveal" data-category="digital">
+                            <div class="course-card">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity" class="course-img">
+                                <div class="course-content">
+                                    <span class="course-badge bg-secondary-brand text-white">Certification</span>
+                                    <h4 class="fw-bold">Cybersecurity Operations</h4>
+                                    <div class="program-meta">
+                                        <span><i class="bi bi-clock me-1"></i> 1 Year</span>
+                                        <span><i class="bi bi-shield-lock me-1"></i> CompTIA+ Path</span>
+                                    </div>
+                                    <p class="text-muted small">Hands-on training in network defense, ethical hacking, and threat mitigation strategies.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm mt-3 px-4">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Program 3 -->
+                        <div class="col-md-6 program-card reveal" data-category="engineering">
+                            <div class="course-card">
+                                <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=800&q=80" alt="Robotics" class="course-img">
+                                <div class="course-content">
+                                    <span class="course-badge bg-primary text-white">Advanced Diploma</span>
+                                    <h4 class="fw-bold">Robotics Engineering</h4>
+                                    <div class="program-meta">
+                                        <span><i class="bi bi-clock me-1"></i> 3 Years</span>
+                                        <span><i class="bi bi-cpu me-1"></i> PLC Labs</span>
+                                    </div>
+                                    <p class="text-muted small">Integrating mechanical systems with electronics and software for industrial automation.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm mt-3 px-4">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Program 4 -->
+                        <div class="col-md-6 program-card reveal" data-category="manufacturing">
+                            <div class="course-card">
+                                <img src="https://images.unsplash.com/photo-1565151443319-389d34208d13?auto=format&fit=crop&w=800&q=80" alt="Machining" class="course-img">
+                                <div class="course-content">
+                                    <span class="course-badge bg-secondary-brand text-white">Apprenticeship</span>
+                                    <h4 class="fw-bold">CNC Machining & Tooling</h4>
+                                    <div class="program-meta">
+                                        <span><i class="bi bi-clock me-1"></i> 18 Months</span>
+                                        <span><i class="bi bi-tools me-1"></i> Hands-on</span>
+                                    </div>
+                                    <p class="text-muted small">Precision manufacturing techniques using 5-axis CNC machines and CAD/CAM software integration.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm mt-3 px-4">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img style="height: 40px;width:40px;" src="img/logo.png" alt="">
+                        <h4 class="text-white fw-bold mb-0">Taj Technical College</h4>
+                    </div>
+                    <p>Taj Technical College provides world-class technical education focused on practical application and industry readiness through high-performance laboratories.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="text-white fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="About.html" class="footer-link">About</a></li>
+                        <li class="mb-2"><a href="Programs.html" class="footer-link">Programs</a></li>
+                        <li class="mb-2"><a href="Contacts.html" class="footer-link">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="text-white fw-bold mb-4">Stay Informed</h6>
+                    <p class="small">Subscribe for curriculum updates and industry event invites.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="Work Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small text-secondary">&copy; 2026 Taj Technical College.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 small text-secondary">Technology is the Future.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-cta d-md-none border-top">
+        <div class="container d-flex gap-2">
+            <a href="tel:+211924080945" class="btn btn-outline-primary flex-grow-1"><i class="bi bi-telephone me-2"></i>Call</a>
+            <a href="#apply" class="btn btn-primary flex-grow-1">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Filter Logic
+            const filterBtns = document.querySelectorAll('.btn-filter');
+            const cards = document.querySelectorAll('.program-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    cards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filterValue === 'all' || category === filterValue) {
+                            card.style.display = 'block';
+                            // Re-trigger animation
+                            card.classList.remove('active');
+                            setTimeout(() => card.classList.add('active'), 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Navbar behavior
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow');
+                    nav.style.background = '#ffffff';
+                } else {
+                    nav.classList.remove('shadow');
+                    nav.style.background = 'var(--navbar-bg)';
+                }
+            });
+
+            // Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>

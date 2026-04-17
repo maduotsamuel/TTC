@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | TechNova Institute</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --primary-color: #0a2351;
+            --secondary-color: #1b4332;
+            --navbar-bg: #f1f5f9;
+            --text-main: #2d3436;
+            --font-family: 'Inter', sans-serif;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Branding Overrides */
+        .text-primary { color: var(--primary-color) !important; }
+        .bg-primary { background-color: var(--primary-color) !important; }
+        
+        .navbar {
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--navbar-bg);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(rgba(10, 35, 81, 0.9), rgba(10, 35, 81, 0.9)), 
+                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        /* Contact Cards */
+        .info-card {
+            padding: 30px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Form Styling */
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(10, 35, 81, 0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        .form-control, .form-select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background-color: #fbfcfd;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(10, 35, 81, 0.1);
+        }
+
+        /* Map Placeholder */
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 450px;
+            background: #e5e7eb;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        footer {
+            background: #051025;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-link { color: #bdc3c7; text-decoration: none; }
+        .footer-link:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="Index.html">
+                <img style="height: 60px;width: 60px; margin: 15px;" src="img/logo.png" alt="">
+                <span class="fw-bold tracking-tighter text-success">    TAJ TECHNICAL COLLEGE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="programs.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="contacts.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="admissions.html" class="btn btn-primary btn-sm px-4">Apply Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Get In Touch</h1>
+            <p class="lead opacity-75">We're here to answer your questions and help you navigate your technical career.</p>
+        </div>
+    </header>
+
+    <!-- Contact Info Cards -->
+    <section class="py-5 mt-n5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="info-card shadow-sm">
+                        <div class="icon-box">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h5 class="fw-bold">Visit Us</h5>
+                        <p class="text-muted small">Suk - Wewe, Kololo Rd. Next to American</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="info-card shadow-sm">
+                        <div class="icon-box">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <h5 class="fw-bold">Call Us</h5>
+                        <p class="text-muted small">General Enquiries: +211 920 0800 75</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="info-card shadow-sm">
+                        <div class="icon-box">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h5 class="fw-bold">Email Us</h5>
+                        <p class="text-muted small">info@tajcentre.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <!-- Form -->
+                <div class="col-lg-6 reveal">
+                    <div class="contact-form-container">
+                        <h3 class="fw-bold mb-4">Send a Message</h3>
+                        <form id="contactForm" onsubmit="event.preventDefault(); showSuccess();">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Jane Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="jane@example.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Subject</label>
+                                    <select class="form-select">
+                                        <option selected>General Inquiry</option>
+                                        <option>Admissions Question</option>
+                                        <option>Campus Visit Request</option>
+                                        <option>Partnership Proposal</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Your Message</label>
+                                    <textarea class="form-control" rows="5" placeholder="How can we help you?" required></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="formSuccess" class="alert alert-success mt-4 text-center d-none">
+                            <i class="bi bi-check-circle-fill me-2"></i> Message sent! We'll get back to you shortly.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="col-lg-6 reveal">
+                    <div class="map-container shadow-sm d-flex flex-column align-items-center justify-content-center bg-light border">
+                        <i class="bi bi-map text-muted display-1 mb-3"></i>
+                        <h4 class="fw-bold">Our Location</h4>
+                        <p class="text-muted px-4 text-center">TechNova Campus is located in the heart of the Industrial Innovation Park.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-outline-primary btn-sm px-4">Open in Google Maps</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-4 rounded-4 bg-primary text-white">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-clock me-2"></i> Office Hours</h5>
+                        <div class="d-flex justify-content-between small opacity-75 mb-2">
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between small opacity-75">
+                            <span>Saturday</span>
+                            <span>9:00 AM - 1:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img style="height: 40px;width:40px;" src="img/logo.png" alt="">
+                        <h4 class="text-white fw-bold mb-0">Taj Technical College</h4>
+                    </div>
+                    <p>Taj Technical College provides world-class technical education focused on practical application and industry readiness through high-performance laboratories.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="text-white fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="Index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="About.html" class="footer-link">About</a></li>
+                        <li class="mb-2"><a href="Programs.html" class="footer-link">Programs</a></li>
+                        <li class="mb-2"><a href="Contacts.html" class="footer-link">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="text-white fw-bold mb-4">Stay Informed</h6>
+                    <p class="small">Subscribe for curriculum updates and industry event invites.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="Work Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small text-secondary">&copy; 2026 Taj Technical College.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 small text-secondary">Technology is the Future.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function showSuccess() {
+            document.getElementById('contactForm').classList.add('d-none');
+            document.getElementById('formSuccess').classList.remove('d-none');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar behavior
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow');
+                    nav.style.background = '#ffffff';
+                } else {
+                    nav.classList.remove('shadow');
+                    nav.style.background = 'var(--navbar-bg)';
+                }
+            });
+
+            // Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
